@@ -15,7 +15,9 @@ struct ContentView: View {
             showingAlert = true
         }
         .alert("Important message", isPresented: $showingAlert) {
-            Button("OK") { }
+            Button("OK", role: .cancel) { }
+        } message: {
+            Text("Please read this.")
         }
     }
 }
