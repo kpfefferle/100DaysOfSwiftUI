@@ -11,9 +11,9 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Button {
-                print("Button was tapped")
+                print("Edit button was tapped")
             } label: {
-                Text("Tap me!")
+                Label("Edit", systemImage: "pencil")
                     .padding()
                     .foregroundStyle(.white)
                     .background(.red)
