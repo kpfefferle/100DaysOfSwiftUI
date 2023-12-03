@@ -23,6 +23,7 @@ struct ContentView: View {
         "US",
     ].shuffled()
     @State private var score = 0
+    @State private var scoreMessage = ""
     @State private var scoreTitle = ""
     @State private var showingScore = false
     
@@ -78,7 +79,7 @@ struct ContentView: View {
         .alert(scoreTitle, isPresented: $showingScore) {
             Button("Continue", action: askQuestion)
         } message: {
-            Text("Your score is \(score)")
+            Text(scoreMessage)
         }
     }
     
@@ -91,8 +92,10 @@ struct ContentView: View {
         if number == correctAnswer {
             score += 1
             scoreTitle = "Correct"
+            scoreMessage = "Your score is \(score)"
         } else {
             scoreTitle = "Wrong"
+            scoreMessage = "That is the flag of \(countries[number])"
         }
         
         showingScore = true
