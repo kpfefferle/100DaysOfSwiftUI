@@ -22,6 +22,7 @@ struct ContentView: View {
         "Ukraine",
         "US",
     ].shuffled()
+    @State private var score = 0
     @State private var scoreTitle = ""
     @State private var showingScore = false
     
@@ -66,7 +67,7 @@ struct ContentView: View {
                 Spacer()
                 Spacer()
 
-                Text("Score: ???")
+                Text("Score: \(score)")
                     .foregroundStyle(.white)
                     .font(.title.bold())
 
@@ -77,7 +78,7 @@ struct ContentView: View {
         .alert(scoreTitle, isPresented: $showingScore) {
             Button("Continue", action: askQuestion)
         } message: {
-            Text("Your score is ???")
+            Text("Your score is \(score)")
         }
     }
     
@@ -88,6 +89,7 @@ struct ContentView: View {
     
     func flagTapped(_ number: Int) {
         if number == correctAnswer {
+            score += 1
             scoreTitle = "Correct"
         } else {
             scoreTitle = "Wrong"
