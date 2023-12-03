@@ -7,14 +7,26 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @State private var useRedText = false
+struct CapsuleText: View {
+    var text: String
     
     var body: some View {
-        Button("Hello, world!") {
-            useRedText.toggle()
+        Text(text)
+            .font(.largeTitle)
+            .padding()
+            .background(.blue)
+            .clipShape(.capsule)
+    }
+}
+
+struct ContentView: View {
+    var body: some View {
+        VStack(spacing: 10) {
+            CapsuleText(text: "First")
+                .foregroundStyle(.white)
+            CapsuleText(text: "Second")
+                .foregroundStyle(.yellow)
         }
-        .foregroundStyle(useRedText ? .red : .blue)
     }
 }
 
