@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    let gameLength = 8
+    
+    @State private var answerCount = 0
     @State private var correctAnswer = Int.random(in: 0...2)
     @State private var countries = [
         "Estonia",
@@ -25,22 +28,23 @@ struct ContentView: View {
     @State private var score = 0
     @State private var scoreMessage = ""
     @State private var scoreTitle = ""
+    @State private var showingGameOver = false
     @State private var showingScore = false
-    
+
     var body: some View {
         ZStack {
             RadialGradient(stops: [
                 .init(color: Color(red: 0.1, green: 0.2, blue: 0.45), location: 0.3),
                 .init(color: Color(red: 0.76, green: 0.15, blue: 0.26), location: 0.3)
             ], center: .top, startRadius: 200, endRadius: 700)
-                .ignoresSafeArea()
+            .ignoresSafeArea()
             VStack {
                 Spacer()
-
+                
                 Text("Guess the Flag")
                     .font(.largeTitle.bold())
                     .foregroundStyle(.white)
-
+                
                 VStack(spacing: 15) {
                     VStack {
                         Text("Tap the flag of")
@@ -64,14 +68,14 @@ struct ContentView: View {
                 .padding(.vertical, 20)
                 .background(.regularMaterial)
                 .clipShape(.rect(cornerRadius: 20))
-
+                
                 Spacer()
                 Spacer()
-
+                
                 Text("Score: \(score)")
                     .foregroundStyle(.white)
                     .font(.title.bold())
-
+                
                 Spacer()
             }
             .padding()
@@ -81,6 +85,11 @@ struct ContentView: View {
         } message: {
             Text(scoreMessage)
         }
+        .alert("Game Over", isPresented: $showingGameOver) {
+            Button("New Game", action: resetGame)
+        } message: {
+            Text("Your score was \(score) of \(gameLength)")
+        }
     }
     
     func askQuestion() {
@@ -89,6 +98,8 @@ struct ContentView: View {
     }
     
     func flagTapped(_ number: Int) {
+        answerCount += 1
+
         if number == correctAnswer {
             score += 1
             scoreTitle = "Correct"
@@ -98,7 +109,17 @@ struct ContentView: View {
             scoreMessage = "That is the flag of \(countries[number])"
         }
         
-        showingScore = true
+        if answerCount >= gameLength {
+            showingGameOver = true
+        } else {
+            showingScore = true
+        }
+    }
+        
+    func resetGame() {
+        answerCount = 0
+        score = 0
+        askQuestion()
     }
 }
 
