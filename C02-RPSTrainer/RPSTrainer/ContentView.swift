@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    let moves = ["✊🏻", "✋🏻", "✌🏻"].shuffled()
+    @State var moves = ["✊🏻", "✋🏻", "✌🏻"].shuffled()
     @State var opponentMoveIndex = Int.random(in: 0...2)
     @State var userShouldWin = Bool.random()
     
@@ -102,7 +102,9 @@ struct ContentView: View {
     }
     
     func nextMove() {
-        // set state for next move
+        moves.shuffle()
+        opponentMoveIndex = Int.random(in: 0...2)
+        userShouldWin.toggle()
     }
 }
 
