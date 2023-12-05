@@ -9,8 +9,43 @@ import SwiftUI
 
 struct ContentView: View {
     let moves = ["✊🏻", "✋🏻", "✌🏻"].shuffled()
-    @State var opponentMove = Int.random(in: 0...2)
+    @State var opponentMoveIndex = Int.random(in: 0...2)
     @State var userShouldWin = Bool.random()
+    
+    @State var showingScore = false
+    @State var score = 0
+    @State var scoreTitle = ""
+    @State var scoreMessage = ""
+    
+    var opponentMove: String {
+        return moves[opponentMoveIndex]
+    }
+    
+    var winningMove: String {
+        switch opponentMove {
+        case "✊🏻":
+            return "✋🏻"
+        case "✋🏻":
+            return "✌🏻"
+        case "✌🏻":
+            return "✊🏻"
+        default:
+            return ""
+        }
+    }
+    
+    var losingMove: String {
+        switch opponentMove {
+        case "✊🏻":
+            return "✌🏻"
+        case "✋🏻":
+            return "✊🏻"
+        case "✌🏻":
+            return "✋🏻"
+        default:
+            return ""
+        }
+    }
     
     var body: some View {
         ZStack {
@@ -21,7 +56,7 @@ struct ContentView: View {
                 Spacer()
 
                 Text("Your opponent's move is")
-                Text(moves[opponentMove])
+                Text(opponentMove)
                     .font(.system(size: 100))
 
                 Spacer()
@@ -32,7 +67,7 @@ struct ContentView: View {
                 
                 ForEach(moves, id: \.self) { move in
                     Button {
-                        // check answer
+                        checkMove(move)
                     } label: {
                         Text(move)
                             .font(.system(size: 100))
@@ -44,6 +79,30 @@ struct ContentView: View {
             .foregroundStyle(.white)
             .padding()
         }
+        .alert(scoreTitle, isPresented: $showingScore) {
+            Button("Continue", action: nextMove)
+        } message: {
+            Text(scoreMessage)
+        }
+    }
+    
+    func checkMove(_ chosenMove: String) {
+        let correctMove = userShouldWin ? winningMove : losingMove
+        
+        if chosenMove == correctMove {
+            score += 1
+            scoreTitle = "Correct"
+            scoreMessage = "Your score is \(score)"
+        } else {
+            scoreTitle = "Wrong"
+            scoreMessage = "The correct move was \(correctMove)"
+        }
+        
+        showingScore = true
+    }
+    
+    func nextMove() {
+        // set state for next move
     }
 }
 
