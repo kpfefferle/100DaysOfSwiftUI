@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    let gameLength = 10
+    
     @State var moves = ["✊🏻", "✋🏻", "✌🏻"].shuffled()
     @State var opponentMoveIndex = Int.random(in: 0...2)
     @State var userShouldWin = Bool.random()
@@ -16,6 +18,9 @@ struct ContentView: View {
     @State var score = 0
     @State var scoreTitle = ""
     @State var scoreMessage = ""
+    
+    @State var answerCount = 0
+    @State var showingGameOver = false
     
     var opponentMove: String {
         return moves[opponentMoveIndex]
@@ -84,9 +89,14 @@ struct ContentView: View {
         } message: {
             Text(scoreMessage)
         }
+        .alert("Game Over", isPresented: $showingGameOver) {
+            Button("New Game", action: newGame)
+        } message: {
+            Text("You scored \(score) out of \(gameLength)")
+        }
     }
     
-    func checkMove(_ chosenMove: String) {
+    private func checkMove(_ chosenMove: String) {
         let correctMove = userShouldWin ? winningMove : losingMove
         
         if chosenMove == correctMove {
@@ -98,13 +108,24 @@ struct ContentView: View {
             scoreMessage = "The correct move was \(correctMove)"
         }
         
-        showingScore = true
+        answerCount += 1
+        if (answerCount < gameLength) {
+            showingScore = true
+        } else {
+            showingGameOver = true
+        }
     }
     
-    func nextMove() {
+    private func nextMove() {
         moves.shuffle()
         opponentMoveIndex = Int.random(in: 0...2)
         userShouldWin.toggle()
+    }
+    
+    private func newGame() {
+        answerCount = 0
+        score = 0
+        nextMove()
     }
 }
 
