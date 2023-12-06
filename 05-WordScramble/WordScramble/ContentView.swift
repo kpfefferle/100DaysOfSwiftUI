@@ -38,6 +38,9 @@ struct ContentView: View {
             .navigationTitle(rootWord)
             .onSubmit(addNewWord)
             .onAppear(perform: startGame)
+            .toolbar {
+                Button("New Game", action: startGame)
+            }
             .alert(errorTitle, isPresented: $showingError) { } message: {
                 Text(errorMessage)
             }
@@ -49,6 +52,8 @@ struct ContentView: View {
             if let startWords = try? String(contentsOf: startWordsURL) {
                 let allWords = startWords.components(separatedBy: "\n")
                 rootWord = allWords.randomElement() ?? "silkworm"
+                newWord = ""
+                usedWords = []
                 return
             }
         }
