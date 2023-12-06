@@ -16,9 +16,10 @@ struct ContentView: View {
         }
         .padding(50)
         .background(enabled ? .blue : .red)
-        .foregroundStyle(.white)
-        .clipShape(.circle)
         .animation(.default, value: enabled)
+        .foregroundStyle(.white)
+        .clipShape(.rect(cornerRadius: enabled ? 60 : 0))
+        .animation(.spring(duration: 1, bounce: 0.6), value: enabled)
     }
 }
 
