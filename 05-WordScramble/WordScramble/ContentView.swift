@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    let minWordLength = 3
+    
     @State private var usedWords = [String]()
     @State private var rootWord = ""
     @State private var newWord = ""
@@ -58,6 +60,16 @@ struct ContentView: View {
         let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
         
         guard answer.count > 0 else { return }
+        
+        guard answer != rootWord else {
+            wordError(title: "Word is starting word", message: "You can't use the starting word!")
+            return
+        }
+        
+        guard answer.count >= minWordLength else {
+            wordError(title: "Word is too short", message: "You must guess words at least 3 letters long!")
+            return
+        }
         
         guard isOriginal(word: answer) else {
             wordError(title: "Word used already", message: "Be more original!")
