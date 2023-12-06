@@ -43,7 +43,11 @@ struct ContentView: View {
                 VStack(alignment: .leading) {
                     Text("Daily coffee intake")
                         .font(.headline)
-                    Stepper("^[\(coffeeAmount) cup](inflect: true)", value: $coffeeAmount, in: 1...20)
+                    Picker("^[\(coffeeAmount) cup](inflect: true)", selection: $coffeeAmount) {
+                        ForEach(1..<21) { num in
+                            Text("^[\(num) cup](inflect: true)")
+                        }
+                    }
                 }
             }
             .navigationTitle("BetterRest")
@@ -67,7 +71,7 @@ struct ContentView: View {
             let hour = (components.hour ?? 0) * 60 * 60
             let minute = (components.minute ?? 0) * 60
             
-            let prediction = try model.prediction(wake: Int64(hour + minute), estimatedSleep: sleepAmount, coffee: Int64(coffeeAmount))
+            let prediction = try model.prediction(wake: Int64(hour + minute), estimatedSleep: sleepAmount, coffee: Int64(coffeeAmount + 1))
             
             let sleepTime = wakeUp - prediction.actualSleep
             
