@@ -8,25 +8,43 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var usedWords = [String]()
+    @State private var rootWord = ""
+    @State private var newWord = ""
+    
     var body: some View {
-        List {
-            Section("Section 1") {
-                Text("Static row 1")
-                Text("Static row 2")
-            }
-
-            Section("Section 2") {
-                ForEach(0..<5) {
-                    Text("Dynamic row \($0)")
+        NavigationStack {
+            List {
+                Section {
+                    TextField("Enter your word", text: $newWord)
+                        .textInputAutocapitalization(.never)
+                }
+                
+                Section {
+                    ForEach(usedWords, id: \.self) { word in
+                        HStack {
+                            Image(systemName: "\(word.count).circle")
+                            Text(word)
+                        }
+                    }
                 }
             }
-
-            Section("Section 3") {
-                Text("Static row 3")
-                Text("Static row 4")
-            }
+            .navigationTitle(rootWord)
+            .onSubmit(addNewWord)
         }
-        .listStyle(.grouped)
+    }
+    
+    func addNewWord() {
+        let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        guard answer.count > 0 else { return }
+        
+        // TODO: extra validation
+        
+        withAnimation {
+            usedWords.insert(answer, at: 0)
+        }
+        newWord = ""
     }
 }
 
