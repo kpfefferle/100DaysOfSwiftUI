@@ -18,6 +18,16 @@ struct ContentView: View {
     @State private var errorMessage = ""
     @State private var showingError = false
     
+    var score: Int {
+        var score = 0
+        
+        for word in usedWords {
+            score += word.count
+        }
+        
+        return score
+    }
+    
     var body: some View {
         NavigationStack {
             List {
@@ -26,7 +36,7 @@ struct ContentView: View {
                         .textInputAutocapitalization(.never)
                 }
                 
-                Section {
+                Section("Score: \(score)") {
                     ForEach(usedWords, id: \.self) { word in
                         HStack {
                             Image(systemName: "\(word.count).circle")
