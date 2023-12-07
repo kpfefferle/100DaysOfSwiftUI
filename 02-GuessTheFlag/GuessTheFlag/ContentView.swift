@@ -11,12 +11,14 @@ struct FlagImage: View {
     var image: String
     var opacityAmount: Double
     var rotateAmount: Double
+    var scaleAmount: Double
     
     var body: some View {
         Image(image)
             .clipShape(.capsule)
             .shadow(radius: 5)
             .opacity(opacityAmount)
+            .scaleEffect(scaleAmount)
             .rotation3DEffect(.degrees(rotateAmount), axis: (x: 0, y: 1, z: 0))
     }
 }
@@ -79,7 +81,8 @@ struct ContentView: View {
                             FlagImage(
                                 image: countries[number],
                                 opacityAmount: ((selectedFlag == -1 || number == selectedFlag) ? 1.0 : 0.25),
-                                rotateAmount: (number == selectedFlag ? 360.0 : 0.0)
+                                rotateAmount: (number == selectedFlag ? 360.0 : 0.0),
+                                scaleAmount: ((selectedFlag == -1 || number == selectedFlag) ? 1.0 : 0.8)
                             )
                         }
                     }
@@ -113,9 +116,7 @@ struct ContentView: View {
     }
     
     func askQuestion() {
-        withAnimation {
-            selectedFlag = -1
-        }
+        selectedFlag = -1
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
     }
