@@ -9,13 +9,15 @@ import SwiftUI
 
 struct FlagImage: View {
     var image: String
-    var rotateAmount = 0
+    var opacityAmount: Double
+    var rotateAmount: Double
     
     var body: some View {
         Image(image)
             .clipShape(.capsule)
             .shadow(radius: 5)
-            .rotation3DEffect(.degrees(Double(rotateAmount)), axis: (x: 0, y: 1, z: 0))
+            .opacity(opacityAmount)
+            .rotation3DEffect(.degrees(rotateAmount), axis: (x: 0, y: 1, z: 0))
     }
 }
 
@@ -76,7 +78,8 @@ struct ContentView: View {
                         } label: {
                             FlagImage(
                                 image: countries[number],
-                                rotateAmount: (number == selectedFlag ? 360 : 0)
+                                opacityAmount: ((selectedFlag == -1 || number == selectedFlag) ? 1.0 : 0.25),
+                                rotateAmount: (number == selectedFlag ? 360.0 : 0.0)
                             )
                         }
                     }
@@ -110,12 +113,17 @@ struct ContentView: View {
     }
     
     func askQuestion() {
+        withAnimation {
+            selectedFlag = -1
+        }
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
     }
     
     func flagTapped(_ number: Int) {
-        selectedFlag = number
+        withAnimation {
+            selectedFlag = number
+        }
         answerCount += 1
 
         if number == correctAnswer {
