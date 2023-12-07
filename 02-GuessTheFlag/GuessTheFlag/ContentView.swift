@@ -9,19 +9,22 @@ import SwiftUI
 
 struct FlagImage: View {
     var image: String
+    var rotateAmount = 0
     
     var body: some View {
         Image(image)
             .clipShape(.capsule)
             .shadow(radius: 5)
+            .rotation3DEffect(.degrees(Double(rotateAmount)), axis: (x: 0, y: 1, z: 0))
     }
 }
 
 struct ContentView: View {
-    let gameLength = 8
+    private let gameLength = 8
     
     @State private var answerCount = 0
-    @State private var correctAnswer = Int.random(in: 0...2)
+    @State private var score = 0
+
     @State private var countries = [
         "Estonia",
         "France",
@@ -35,11 +38,14 @@ struct ContentView: View {
         "Ukraine",
         "US",
     ].shuffled()
-    @State private var score = 0
+    @State private var correctAnswer = Int.random(in: 0...2)
+    @State private var selectedFlag = -1
+
     @State private var scoreMessage = ""
     @State private var scoreTitle = ""
-    @State private var showingGameOver = false
     @State private var showingScore = false
+
+    @State private var showingGameOver = false
 
     var body: some View {
         ZStack {
@@ -68,7 +74,10 @@ struct ContentView: View {
                         Button {
                             flagTapped(number)
                         } label: {
-                            FlagImage(image: countries[number])
+                            FlagImage(
+                                image: countries[number],
+                                rotateAmount: (number == selectedFlag ? 360 : 0)
+                            )
                         }
                     }
                 }
@@ -106,6 +115,7 @@ struct ContentView: View {
     }
     
     func flagTapped(_ number: Int) {
+        selectedFlag = number
         answerCount += 1
 
         if number == correctAnswer {
