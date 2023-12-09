@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct User {
+@Observable
+class User {
     var firstName = "Bilbo"
     var lastName = "Baggins"
 }
