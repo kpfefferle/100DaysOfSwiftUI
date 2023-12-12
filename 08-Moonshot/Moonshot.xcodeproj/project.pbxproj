@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A7D12B42B2822B500F5BC67 /* missions.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D12B22B2822B500F5BC67 /* missions.json */; };
+		0A7D12B52B2822B500F5BC67 /* astronauts.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D12B32B2822B500F5BC67 /* astronauts.json */; };
 		0ABB24962B26C4DC00C83492 /* MoonshotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABB24952B26C4DC00C83492 /* MoonshotApp.swift */; };
 		0ABB24982B26C4DC00C83492 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABB24972B26C4DC00C83492 /* ContentView.swift */; };
 		0ABB249A2B26C4DD00C83492 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ABB24992B26C4DD00C83492 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A7D12B22B2822B500F5BC67 /* missions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = missions.json; sourceTree = "<group>"; };
+		0A7D12B32B2822B500F5BC67 /* astronauts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronauts.json; sourceTree = "<group>"; };
 		0ABB24922B26C4DC00C83492 /* Moonshot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moonshot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ABB24952B26C4DC00C83492 /* MoonshotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonshotApp.swift; sourceTree = "<group>"; };
 		0ABB24972B26C4DC00C83492 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +57,8 @@
 			children = (
 				0ABB24952B26C4DC00C83492 /* MoonshotApp.swift */,
 				0ABB24972B26C4DC00C83492 /* ContentView.swift */,
+				0A7D12B32B2822B500F5BC67 /* astronauts.json */,
+				0A7D12B22B2822B500F5BC67 /* missions.json */,
 				0ABB24992B26C4DD00C83492 /* Assets.xcassets */,
 				0ABB249B2B26C4DD00C83492 /* Preview Content */,
 			);
@@ -126,7 +132,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0ABB249D2B26C4DD00C83492 /* Preview Assets.xcassets in Resources */,
+				0A7D12B42B2822B500F5BC67 /* missions.json in Resources */,
 				0ABB249A2B26C4DD00C83492 /* Assets.xcassets in Resources */,
+				0A7D12B52B2822B500F5BC67 /* astronauts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
