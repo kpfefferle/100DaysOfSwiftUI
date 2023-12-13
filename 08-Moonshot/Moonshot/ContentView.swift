@@ -27,7 +27,7 @@ struct ContentView: View {
                                 Image(mission.image)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 100)
+                                    .frame(width: 100, height: 100)
                                     .padding()
                                 
                                 VStack {
