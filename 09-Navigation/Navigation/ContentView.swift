@@ -17,6 +17,12 @@ struct ContentView: View {
                             // button action here
                         }
                     }
+
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button("Or Tap Me") {
+                            // button action here
+                        }
+                    }
                 }
         }
     }
