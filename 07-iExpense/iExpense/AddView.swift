@@ -33,6 +33,7 @@ struct AddView: View {
                     .keyboardType(.decimalPad)
             }
             .navigationTitle("Add new expense")
+            .navigationBarBackButtonHidden()
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
