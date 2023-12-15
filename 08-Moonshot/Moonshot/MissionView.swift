@@ -7,6 +7,39 @@
 
 import SwiftUI
 
+struct DividerView: View {
+    var body: some View {
+        Rectangle()
+            .frame(height: 2)
+            .foregroundStyle(.lightBackground)
+    }
+}
+
+struct CrewMemberView: View {
+    let crewMember: MissionView.CrewMember
+    
+    var body: some View {
+        HStack {
+            Image(crewMember.astronaut.id)
+                .resizable()
+                .frame(width: 104, height: 72)
+                .clipShape(.capsule)
+                .overlay(
+                    Capsule()
+                        .strokeBorder(.white, lineWidth: 1)
+                )
+            
+            VStack(alignment: .leading) {
+                Text(crewMember.astronaut.name)
+                    .foregroundStyle(.white)
+                    .font(.headline)
+                Text(crewMember.role)
+                    .foregroundStyle(.white.opacity(0.5))
+            }
+        }
+    }
+}
+
 struct MissionView: View {
     struct CrewMember {
         let role: String
@@ -43,11 +76,9 @@ struct MissionView: View {
                     .font(.headline)
                     .foregroundStyle(.white.opacity(0.5))
 
-                Rectangle()
-                    .frame(height: 2)
-                    .foregroundStyle(.lightBackground)
+                DividerView()
                     .padding(.vertical)
-                
+
                 VStack(alignment: .leading) {
                     Text("Mission Highlights")
                         .font(.title.bold())
@@ -55,11 +86,9 @@ struct MissionView: View {
                     
                     Text(mission.description)
 
-                    Rectangle()
-                        .frame(height: 2)
-                        .foregroundStyle(.lightBackground)
+                    DividerView()
                         .padding(.vertical)
-                    
+
                     Text("Crew")
                         .font(.title.bold())
                         .padding(.bottom, 5)
@@ -72,25 +101,8 @@ struct MissionView: View {
                             NavigationLink {
                                 AstronautView(astronaut: crewMember.astronaut)
                             } label: {
-                                HStack {
-                                    Image(crewMember.astronaut.id)
-                                        .resizable()
-                                        .frame(width: 104, height: 72)
-                                        .clipShape(.capsule)
-                                        .overlay(
-                                            Capsule()
-                                                .strokeBorder(.white, lineWidth: 1)
-                                        )
-                                    
-                                    VStack(alignment: .leading) {
-                                        Text(crewMember.astronaut.name)
-                                            .foregroundStyle(.white)
-                                            .font(.headline)
-                                        Text(crewMember.role)
-                                            .foregroundStyle(.white.opacity(0.5))
-                                    }
-                                }
-                                .padding(.horizontal)
+                                CrewMemberView(crewMember: crewMember)
+                                    .padding(.horizontal)
                             }
                         }
                     }
