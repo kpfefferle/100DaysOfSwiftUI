@@ -15,8 +15,9 @@ struct ContentView: View {
             }
             .navigationTitle("Title goes here")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbarBackground(.blue)
-            .toolbarColorScheme(.dark)
+            .toolbarBackground(.blue, for: .navigationBar)
+            .toolbarColorScheme(.dark, for: .navigationBar)
+            .toolbar(.hidden, for: .navigationBar)
         }
     }
 }
