@@ -38,7 +38,11 @@ struct MissionView: View {
                         width * 0.6
                     }
                     .padding(.top)
-                
+
+                Text(mission.formattedLaunchDate)
+                    .font(.headline)
+                    .foregroundStyle(.white.opacity(0.5))
+
                 Rectangle()
                     .frame(height: 2)
                     .foregroundStyle(.lightBackground)
