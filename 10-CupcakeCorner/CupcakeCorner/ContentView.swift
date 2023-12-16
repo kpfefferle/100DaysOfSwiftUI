@@ -8,27 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var username = ""
-    @State private var email = ""
-    
-    var disableForm: Bool {
-        username.count < 5 || email.count < 5
-    }
+    @State private var counter = 0
     
     var body: some View {
-        Form {
-            Section {
-                TextField("Username", text: $username)
-                TextField("Email", text: $email)
-            }
-            
-            Section {
-                Button("Create account") {
-                    print("Creating account...")
-                }
-            }
-            .disabled(disableForm)
+        Button("Tap count: \(counter)") {
+            counter += 1
         }
+        .sensoryFeedback(.increase, trigger: counter)
     }
 }
 
