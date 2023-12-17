@@ -31,7 +31,11 @@ class Order: Codable {
     var zip = ""
     
     var hasValidAddress: Bool {
-        if name.isEmpty || streetAddress.isEmpty || city.isEmpty || zip.isEmpty {
+        let isNameEmpty = name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        let isStreetAddressEmpty = streetAddress.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        let isCityEmpty = city.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        let isZipEmpty = zip.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        if isNameEmpty || isStreetAddressEmpty || isCityEmpty || isZipEmpty {
             return false
         }
         
