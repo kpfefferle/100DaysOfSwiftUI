@@ -13,6 +13,7 @@
 		0A0C34B22B2F7B5D000932E3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A0C34B12B2F7B5D000932E3 /* Preview Assets.xcassets */; };
 		0A0C34BB2B2F8710000932E3 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0C34BA2B2F8710000932E3 /* Book.swift */; };
 		0A0C34BD2B2F887A000932E3 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0C34BC2B2F887A000932E3 /* AddBookView.swift */; };
+		0A0C34BF2B2F8D5D000932E3 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0C34BE2B2F8D5D000932E3 /* RatingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		0A0C34B12B2F7B5D000932E3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0A0C34BA2B2F8710000932E3 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		0A0C34BC2B2F887A000932E3 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
+		0A0C34BE2B2F8D5D000932E3 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				0A0C34BA2B2F8710000932E3 /* Book.swift */,
 				0A0C34AC2B2F7B5C000932E3 /* ContentView.swift */,
 				0A0C34BC2B2F887A000932E3 /* AddBookView.swift */,
+				0A0C34BE2B2F8D5D000932E3 /* RatingView.swift */,
 				0A0C34AE2B2F7B5D000932E3 /* Assets.xcassets */,
 				0A0C34B02B2F7B5D000932E3 /* Preview Content */,
 			);
@@ -146,6 +149,7 @@
 				0A0C34AD2B2F7B5C000932E3 /* ContentView.swift in Sources */,
 				0A0C34AB2B2F7B5C000932E3 /* BookwormApp.swift in Sources */,
 				0A0C34BB2B2F8710000932E3 /* Book.swift in Sources */,
+				0A0C34BF2B2F8D5D000932E3 /* RatingView.swift in Sources */,
 				0A0C34BD2B2F887A000932E3 /* AddBookView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
