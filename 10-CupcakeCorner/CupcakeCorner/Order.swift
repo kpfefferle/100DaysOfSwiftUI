@@ -25,10 +25,41 @@ class Order: Codable {
     var extraFrosting = false
     var addSprinkles = false
     
-    var name = ""
-    var streetAddress = ""
-    var city = ""
-    var zip = ""
+    var name = "" {
+        didSet {
+            UserDefaults.standard.set(name, forKey: "name")
+        }
+    }
+    var streetAddress = "" {
+        didSet {
+            UserDefaults.standard.set(streetAddress, forKey: "streetAddress")
+        }
+    }
+    var city = "" {
+        didSet {
+            UserDefaults.standard.set(city, forKey: "city")
+        }
+    }
+    var zip = "" {
+        didSet {
+            UserDefaults.standard.set(zip, forKey: "zip")
+        }
+    }
+    
+    init() {
+        if let nameString = UserDefaults.standard.value(forKey: "name") as? String {
+            name = nameString
+        }
+        if let streetAddressString = UserDefaults.standard.value(forKey: "streetAddress") as? String {
+            streetAddress = streetAddressString
+        }
+        if let cityString = UserDefaults.standard.value(forKey: "city") as? String {
+            city = cityString
+        }
+        if let zipString = UserDefaults.standard.value(forKey: "zip") as? String {
+            zip = zipString
+        }
+    }
     
     var hasValidAddress: Bool {
         let isNameEmpty = name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
