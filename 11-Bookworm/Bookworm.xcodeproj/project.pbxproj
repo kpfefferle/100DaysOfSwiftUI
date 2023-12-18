@@ -15,6 +15,7 @@
 		0A0C34BD2B2F887A000932E3 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0C34BC2B2F887A000932E3 /* AddBookView.swift */; };
 		0A0C34BF2B2F8D5D000932E3 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0C34BE2B2F8D5D000932E3 /* RatingView.swift */; };
 		0A0C34C12B2F90A5000932E3 /* EmojiRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0C34C02B2F90A5000932E3 /* EmojiRatingView.swift */; };
+		0A0C34C32B3001EE000932E3 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0C34C22B3001EE000932E3 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		0A0C34BC2B2F887A000932E3 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 		0A0C34BE2B2F8D5D000932E3 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		0A0C34C02B2F90A5000932E3 /* EmojiRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiRatingView.swift; sourceTree = "<group>"; };
+		0A0C34C22B3001EE000932E3 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				0A0C34AC2B2F7B5C000932E3 /* ContentView.swift */,
 				0A0C34C02B2F90A5000932E3 /* EmojiRatingView.swift */,
 				0A0C34BC2B2F887A000932E3 /* AddBookView.swift */,
+				0A0C34C22B3001EE000932E3 /* DetailView.swift */,
 				0A0C34BE2B2F8D5D000932E3 /* RatingView.swift */,
 				0A0C34AE2B2F7B5D000932E3 /* Assets.xcassets */,
 				0A0C34B02B2F7B5D000932E3 /* Preview Content */,
@@ -152,6 +155,7 @@
 				0A0C34AD2B2F7B5C000932E3 /* ContentView.swift in Sources */,
 				0A0C34AB2B2F7B5C000932E3 /* BookwormApp.swift in Sources */,
 				0A0C34BB2B2F8710000932E3 /* Book.swift in Sources */,
+				0A0C34C32B3001EE000932E3 /* DetailView.swift in Sources */,
 				0A0C34BF2B2F8D5D000932E3 /* RatingView.swift in Sources */,
 				0A0C34C12B2F90A5000932E3 /* EmojiRatingView.swift in Sources */,
 				0A0C34BD2B2F887A000932E3 /* AddBookView.swift in Sources */,
