@@ -19,6 +19,12 @@ struct AddBookView: View {
     @State private var genre = "Fantasy"
     @State private var review = ""
     
+    var hasValidInput: Bool {
+        let hasTitle = !title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        let hasAuthor = !author.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        return hasTitle && hasAuthor
+    }
+
     var body: some View {
         NavigationStack {
             Form {
@@ -45,6 +51,7 @@ struct AddBookView: View {
                         dismiss()
                     }
                 }
+                .disabled(!hasValidInput)
             }
             .navigationTitle("Add Book")
         }
