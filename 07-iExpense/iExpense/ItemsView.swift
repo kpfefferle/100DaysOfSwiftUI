@@ -50,8 +50,14 @@ struct ItemsView: View {
         }
     }
     
-    init(sortOrder: [SortDescriptor<ExpenseItem>]) {
-        _items = Query(sort: sortOrder)
+    init(sortOrder: [SortDescriptor<ExpenseItem>], typeFilter: String) {
+        _items = Query(filter: #Predicate<ExpenseItem> { item in
+            if typeFilter == "All" {
+                return true
+            } else {
+                return item.type == typeFilter
+            }
+        }, sort: sortOrder)
     }
     
     func removeItems(at offsets: IndexSet) {
@@ -63,6 +69,6 @@ struct ItemsView: View {
 }
 
 #Preview {
-    ItemsView(sortOrder: [SortDescriptor(\ExpenseItem.name)])
+    ItemsView(sortOrder: [SortDescriptor(\ExpenseItem.name)], typeFilter: "All")
         .modelContainer(for: ExpenseItem.self)
 }

@@ -13,12 +13,24 @@ struct ContentView: View {
         SortDescriptor(\ExpenseItem.name),
         SortDescriptor(\ExpenseItem.amount),
     ]
+    @State private var typeFilter = "All"
     
     var body: some View {
         NavigationStack {
-            ItemsView(sortOrder: sortOrder)
+            ItemsView(sortOrder: sortOrder, typeFilter: typeFilter)
                 .navigationTitle("iExpense")
                 .toolbar {
+                    Menu("Filter") {
+                        Picker("Filter", selection: $typeFilter) {
+                            Text("Show All")
+                                .tag("All")
+                            Text("Show Personal")
+                                .tag("Personal")
+                            Text("Show Business")
+                                .tag("Business")
+                        }
+                    }
+                    
                     Menu("Sort", systemImage: "arrow.up.arrow.down") {
                         Picker("Sort", selection: $sortOrder) {
                             Text("Sort by Name")
