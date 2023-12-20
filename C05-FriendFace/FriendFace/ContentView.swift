@@ -51,10 +51,25 @@ struct ContentView: View {
     @State private var users = [User]()
     
     var body: some View {
-        Text("Users: \(users.count)")
-            .task {
-                await loadData()
+        NavigationStack {
+            List(users) { user in
+                HStack {
+                    Text(user.name)
+                    Spacer()
+                    Text(user.isActive ? "Active" : "Inactive")
+                        .fontWeight(.black)
+                        .padding(.vertical, 4)
+                        .padding(.horizontal, 8)
+                        .background(user.isActive ? .green : .gray)
+                        .foregroundStyle(.white)
+                        .clipShape(.capsule)
+                }
             }
+            .navigationTitle("FriendFace")
+        }
+        .task {
+            await loadData()
+        }
     }
     
     func loadData() async {
