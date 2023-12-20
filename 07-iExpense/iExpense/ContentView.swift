@@ -5,6 +5,7 @@
 //  Created by Kevin Pfefferle on 12/9/23.
 //
 
+import SwiftData
 import SwiftUI
 
 struct ItemView: View {
@@ -36,33 +37,22 @@ struct ItemView: View {
 }
 
 struct ContentView: View {
-    @State private var expenses = Expenses()
+    @Environment(\.modelContext) var modelContext
+    
+    @Query var items: [ExpenseItem]
 
     var body: some View {
         NavigationStack {
             List {
-                Section("Personal") {
-                    ForEach(expenses.items) { item in
-                        if item.type == "Personal" {
-                            ItemView(item: item)
-                        }
-                    }
-                    .onDelete(perform: removeItems)
+                ForEach(items) { item in
+                    ItemView(item: item)
                 }
-
-                Section("Business") {
-                    ForEach(expenses.items) { item in
-                        if item.type == "Business" {
-                            ItemView(item: item)
-                        }
-                    }
-                    .onDelete(perform: removeItems)
-                }
+                .onDelete(perform: removeItems)
             }
             .navigationTitle("iExpense")
             .toolbar {
                 NavigationLink {
-                    AddView(expenses: expenses)
+                    AddView()
                 } label: {
                     Image(systemName: "plus")
                         .accessibilityLabel("Add new expense")
@@ -72,7 +62,10 @@ struct ContentView: View {
     }
     
     func removeItems(at offsets: IndexSet) {
-        expenses.items.remove(atOffsets: offsets)
+        for offset in offsets {
+            let item = items[offset]
+            modelContext.delete(item)
+        }
     }
 }
 

@@ -9,8 +9,7 @@ import SwiftUI
 
 struct AddView: View {
     @Environment(\.dismiss) var dismiss
-    
-    var expenses: Expenses
+    @Environment(\.modelContext) var modelContext
     
     @State private var name = "New expense"
     @State private var type = "Personal"
@@ -37,7 +36,7 @@ struct AddView: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
                         let item = ExpenseItem(name: name, type: type, amount: amount)
-                        expenses.items.append(item)
+                        modelContext.insert(item)
                         dismiss()
                     }
                 }
@@ -53,5 +52,5 @@ struct AddView: View {
 }
 
 #Preview {
-    AddView(expenses: Expenses())
+    AddView()
 }
