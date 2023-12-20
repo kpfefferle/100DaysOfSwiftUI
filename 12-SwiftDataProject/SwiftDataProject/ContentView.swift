@@ -54,6 +54,11 @@ struct ContentView: View {
                     modelContext.insert(second)
                     modelContext.insert(third)
                     modelContext.insert(fourth)
+                    
+                    let job1 = Job(name: "Organize sock drawer", priority: 3)
+                    let job2 = Job(name: "Make plans with Alex", priority: 4)
+                    first.jobs.append(job1)
+                    first.jobs.append(job2)
                 }
             }
         }
