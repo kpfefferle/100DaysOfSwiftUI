@@ -14,7 +14,7 @@ class User {
     var city: String
     var joinDate: Date
 
-    var jobs = [Job]()
+    @Relationship(deleteRule: .cascade) var jobs = [Job]()
     
     init(name: String, city: String, joinDate: Date) {
         self.name = name
