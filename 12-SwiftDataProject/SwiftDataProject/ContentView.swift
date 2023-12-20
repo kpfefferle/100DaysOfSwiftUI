@@ -11,20 +11,17 @@ import SwiftUI
 struct ContentView: View {
     @Environment(\.modelContext) var modelContext
     
-    @Query(filter: #Predicate<User> { user in
-        user.name.localizedStandardContains("R") &&
-        user.city == "London"
-    }, sort: \User.name) var users: [User]
-    
-    @State private var path = [User]()
+    @State private var showUpcomingOnly = false
     
     var body: some View {
-        NavigationStack(path: $path) {
-            List(users) { user in
-                Text(user.name)
-            }
+        NavigationStack {
+            UsersView(minimumJoinDate: showUpcomingOnly ? .now : .distantPast)
             .navigationTitle("Users")
             .toolbar {
+                Button(showUpcomingOnly ? "Show Everyone" : "Show Upcoming") {
+                    showUpcomingOnly.toggle()
+                }
+
                 Button("Add Samples", systemImage: "plus") {
                     try? modelContext.delete(model: User.self)
 

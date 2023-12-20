@@ -12,6 +12,7 @@
 		0AB2099B2B33426F0065AA91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AB2099A2B33426F0065AA91 /* Assets.xcassets */; };
 		0AB2099E2B33426F0065AA91 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AB2099D2B33426F0065AA91 /* Preview Assets.xcassets */; };
 		0AB209A52B3344B30065AA91 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB209A42B3344B30065AA91 /* User.swift */; };
+		0AB209A92B334A180065AA91 /* UsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB209A82B334A180065AA91 /* UsersView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		0AB2099A2B33426F0065AA91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AB2099D2B33426F0065AA91 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0AB209A42B3344B30065AA91 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0AB209A82B334A180065AA91 /* UsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			children = (
 				0AB209962B33426E0065AA91 /* SwiftDataProjectApp.swift */,
 				0AB209982B33426E0065AA91 /* ContentView.swift */,
+				0AB209A82B334A180065AA91 /* UsersView.swift */,
 				0AB209A42B3344B30065AA91 /* User.swift */,
 				0AB2099A2B33426F0065AA91 /* Assets.xcassets */,
 				0AB2099C2B33426F0065AA91 /* Preview Content */,
@@ -143,6 +146,7 @@
 				0AB209992B33426E0065AA91 /* ContentView.swift in Sources */,
 				0AB209972B33426E0065AA91 /* SwiftDataProjectApp.swift in Sources */,
 				0AB209A52B3344B30065AA91 /* User.swift in Sources */,
+				0AB209A92B334A180065AA91 /* UsersView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
