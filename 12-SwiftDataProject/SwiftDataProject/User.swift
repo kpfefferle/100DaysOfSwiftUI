@@ -21,4 +21,8 @@ class User {
         self.city = city
         self.joinDate = joinDate
     }
+    
+    var unwrappedJobs: [Job] {
+        jobs ?? []
+    }
 }
