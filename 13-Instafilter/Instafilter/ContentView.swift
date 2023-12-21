@@ -8,9 +8,13 @@
 import CoreImage
 import CoreImage.CIFilterBuiltins
 import PhotosUI
+import StoreKit
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("filterCount") var filterCount = 0
+    @Environment(\.requestReview) var requestReview
+    
     let context = CIContext()
     
     @State private var selectedItem: PhotosPickerItem?
@@ -72,9 +76,15 @@ struct ContentView: View {
         showingFilters = true
     }
     
-    func setFilter(_ filter: CIFilter) {
+    @MainActor func setFilter(_ filter: CIFilter) {
         currentFilter = filter
         loadImage()
+        
+        filterCount += 1
+        
+        if filterCount >= 20 {
+            requestReview()
+        }
     }
     
     func loadImage() {
