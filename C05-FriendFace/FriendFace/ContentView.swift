@@ -7,8 +7,12 @@
 
 import SwiftUI
 
-struct User: Identifiable, Codable {
-    let id: String
+struct User: Identifiable, Codable, Hashable {
+    static func == (lhs: User, rhs: User) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    let id: UUID
     let isActive: Bool
     let name: String
     let age: Int
@@ -23,7 +27,8 @@ struct User: Identifiable, Codable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = try container.decode(String.self, forKey: .id)
+        let idString = try container.decode(String.self, forKey: .id)
+        self.id = UUID(uuidString: idString) ?? UUID()
         self.isActive = try container.decode(Bool.self, forKey: .isActive)
         self.name = try container.decode(String.self, forKey: .name)
         self.age = try container.decode(Int.self, forKey: .age)
@@ -40,11 +45,28 @@ struct User: Identifiable, Codable {
         self.tags = try container.decode([String].self, forKey: .tags)
         self.friends = try container.decode([Friend].self, forKey: .friends)
     }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }
 
 struct Friend: Identifiable, Codable {
     let id: String
     let name: String
+}
+
+struct DetailView: View {
+    let user: User
+    
+    var body: some View {
+        List(user.friends) { friend in
+            Text(friend.name)
+        }
+        .navigationTitle(user.name)
+        .navigationBarTitleDisplayMode(.inline)
+        .scrollBounceBehavior(.basedOnSize)
+    }
 }
 
 struct ContentView: View {
@@ -53,16 +75,20 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List(users) { user in
-                HStack {
-                    Text(user.name)
-                    Spacer()
-                    Text(user.isActive ? "Active" : "Inactive")
-                        .fontWeight(.black)
-                        .padding(.vertical, 4)
-                        .padding(.horizontal, 8)
-                        .background(user.isActive ? .green : .gray)
-                        .foregroundStyle(.white)
-                        .clipShape(.capsule)
+                NavigationLink {
+                    DetailView(user: user)
+                } label: {
+                    HStack {
+                        Text(user.name)
+                        Spacer()
+                        Text(user.isActive ? "Active" : "Inactive")
+                            .fontWeight(.black)
+                            .padding(.vertical, 4)
+                            .padding(.horizontal, 8)
+                            .background(user.isActive ? .green : .gray)
+                            .foregroundStyle(.white)
+                            .clipShape(.capsule)
+                    }
                 }
             }
             .navigationTitle("FriendFace")
