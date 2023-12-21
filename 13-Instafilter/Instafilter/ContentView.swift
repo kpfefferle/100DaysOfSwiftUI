@@ -15,7 +15,13 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                // TODO: image area
+                if let processedImage {
+                    processedImage
+                        .resizable()
+                        .scaledToFit()
+                } else {
+                    ContentUnavailableView("No Picture", systemImage: "photo.badge.plus", description: Text("Tap to import a photo"))
+                }
                 
                 Spacer()
                 
