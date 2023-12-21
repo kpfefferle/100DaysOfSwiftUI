@@ -32,9 +32,7 @@ struct ContentView: View {
                 .padding(.vertical)
                 
                 HStack {
-                    Button("Change Filter") {
-                        // TODO: change filter
-                    }
+                    Button("Change Filter", action: changeFilter)
                     
                     Spacer()
                     
@@ -44,6 +42,10 @@ struct ContentView: View {
             .padding([.horizontal, .bottom])
             .navigationTitle("Instafilter")
         }
+    }
+    
+    func changeFilter() {
+        // TODO: change filter
     }
 }
 
