@@ -27,8 +27,7 @@ struct User: Identifiable, Codable, Hashable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        let idString = try container.decode(String.self, forKey: .id)
-        self.id = UUID(uuidString: idString) ?? UUID()
+        self.id = try container.decode(UUID.self, forKey: .id)
         self.isActive = try container.decode(Bool.self, forKey: .isActive)
         self.name = try container.decode(String.self, forKey: .name)
         self.age = try container.decode(Int.self, forKey: .age)
@@ -52,7 +51,7 @@ struct User: Identifiable, Codable, Hashable {
 }
 
 struct Friend: Identifiable, Codable {
-    let id: String
+    let id: UUID
     let name: String
 }
 
