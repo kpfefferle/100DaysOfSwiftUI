@@ -23,6 +23,10 @@ struct ContentView: View {
     @State private var filterIntensity = 0.5
     @State private var showingFilters = false
     
+    var isNoImage: Bool {
+        processedImage == nil
+    }
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -46,6 +50,7 @@ struct ContentView: View {
                         .onChange(of: filterIntensity, applyProcessing)
                 }
                 .padding(.vertical)
+                .disabled(isNoImage)
                 
                 HStack {
                     Button("Change Filter", action: changeFilter)
@@ -56,6 +61,7 @@ struct ContentView: View {
                         ShareLink(item: processedImage, preview: SharePreview("Instafilter image", image: processedImage))
                     }
                 }
+                .disabled(isNoImage)
             }
             .padding([.horizontal, .bottom])
             .navigationTitle("Instafilter")
