@@ -5,6 +5,7 @@
 //  Created by Kevin Pfefferle on 12/20/23.
 //
 
+import SwiftData
 import SwiftUI
 
 struct DetailView: View {
@@ -20,8 +21,20 @@ struct DetailView: View {
     }
 }
 
+extension Bool: Comparable {
+    public static func <(lhs: Self, rhs: Self) -> Bool {
+        // the only true inequality is false < true
+        !lhs && rhs
+    }
+}
+
 struct ContentView: View {
-    @State private var users = [User]()
+    @Environment(\.modelContext) var modelContext
+    
+    @Query(sort: [
+        SortDescriptor(\User.isActive, order: .reverse),
+        SortDescriptor(\User.name),
+    ]) var users: [User]
     
     var body: some View {
         NavigationStack {
@@ -59,8 +72,10 @@ struct ContentView: View {
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
 
-            if let decodedResponse = try? JSONDecoder().decode([User].self, from: data) {
-                users = decodedResponse
+            if let users = try? JSONDecoder().decode([User].self, from: data) {
+                for user in users {
+                    modelContext.insert(user)
+                }
             }
         } catch {
             print("Invalid data")

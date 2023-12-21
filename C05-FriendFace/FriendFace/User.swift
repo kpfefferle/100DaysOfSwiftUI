@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import SwiftData
 
-struct User: Identifiable, Codable, Hashable {
+@Model
+class User: Identifiable, Codable, Hashable {
     static func == (lhs: User, rhs: User) -> Bool {
         lhs.id == rhs.id
     }
@@ -25,7 +27,21 @@ struct User: Identifiable, Codable, Hashable {
     let tags: [String]
     let friends: [Friend]
     
-    init(from decoder: Decoder) throws {
+    enum CodingKeys: CodingKey {
+        case id
+        case isActive
+        case name
+        case age
+        case company
+        case email
+        case address
+        case about
+        case registered
+        case tags
+        case friends
+    }
+    
+    required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(UUID.self, forKey: .id)
         self.isActive = try container.decode(Bool.self, forKey: .isActive)
@@ -45,12 +61,45 @@ struct User: Identifiable, Codable, Hashable {
         self.friends = try container.decode([Friend].self, forKey: .friends)
     }
     
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.id, forKey: .id)
+        try container.encode(self.isActive, forKey: .isActive)
+        try container.encode(self.name, forKey: .name)
+        try container.encode(self.age, forKey: .age)
+        try container.encode(self.company, forKey: .company)
+        try container.encode(self.email, forKey: .email)
+        try container.encode(self.address, forKey: .address)
+        try container.encode(self.about, forKey: .about)
+        try container.encode(self.registered.formatted(.iso8601), forKey: .registered)
+        try container.encode(self.tags, forKey: .tags)
+        try container.encode(self.friends, forKey: .friends)
+    }
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
 }
 
-struct Friend: Identifiable, Codable {
+@Model
+class Friend: Identifiable, Codable {
     let id: UUID
     let name: String
+
+    enum CodingKeys: CodingKey {
+        case id
+        case name
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(UUID.self, forKey: .id)
+        self.name = try container.decode(String.self, forKey: .name)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.id, forKey: .id)
+        try container.encode(self.name, forKey: .name)
+    }
 }
