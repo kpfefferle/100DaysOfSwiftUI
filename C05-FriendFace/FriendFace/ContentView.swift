@@ -99,6 +99,10 @@ struct ContentView: View {
     }
     
     func loadData() async {
+        if users.count > 0 {
+            return
+        }
+
         let url = URL(string: "https://www.hackingwithswift.com/samples/friendface.json")!
 
         do {
