@@ -5,41 +5,17 @@
 //  Created by Kevin Pfefferle on 12/22/23.
 //
 
+import MapKit
 import SwiftUI
 
-enum LoadingState {
-    case loading, success, failed
-}
-
-struct LoadingView: View {
-    var body: some View {
-        Text("Loading...")
-    }
-}
-
-struct SuccessView: View {
-    var body: some View {
-        Text("Success!")
-    }
-}
-
-struct FailedView: View {
-    var body: some View {
-        Text("Failed.")
-    }
-}
-
 struct ContentView: View {
-    @State private var loadingState = LoadingState.loading
+    @State private var mapRegion = MKCoordinateRegion(
+        center: CLLocationCoordinate2D(latitude: 51.5, longitude: -0.12),
+        span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
+    )
 
     var body: some View {
-        if loadingState == .loading {
-            LoadingView()
-        } else if loadingState == .success {
-            SuccessView()
-        } else if loadingState == .failed {
-            FailedView()
-        }
+        Map(coordinateRegion: $mapRegion)
     }
 }
 
