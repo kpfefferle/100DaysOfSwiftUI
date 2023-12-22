@@ -26,12 +26,18 @@ struct ContentView: View {
     )
 
     var body: some View {
-        Map(coordinateRegion: $mapRegion, annotationItems: locations) { location in
-            MapAnnotation(coordinate: location.coordinate) {
-                Circle()
-                    .stroke(.red, lineWidth: 3)
-                    .frame(width: 44, height: 44)
+        NavigationView {
+            Map(coordinateRegion: $mapRegion, annotationItems: locations) { location in
+                MapAnnotation(coordinate: location.coordinate) {
+                    Circle()
+                        .stroke(.red, lineWidth: 3)
+                        .frame(width: 44, height: 44)
+                        .onTapGesture {
+                            print("Tapped on \(location.name)")
+                        }
+                }
             }
+            .navigationTitle("London Explorer")
         }
     }
 }
