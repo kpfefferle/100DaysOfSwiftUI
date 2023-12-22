@@ -20,6 +20,9 @@ extension ContentView {
         private(set) var locations: [Location]
         var selectedPlace: Location?
         
+        var showingAuthError = false
+        var authErrorMessage = ""
+        
         let savePath = FileManager.documentsDirectory.appendingPathComponent("SavedPlaces")
         
         init() {
@@ -44,11 +47,17 @@ extension ContentView {
                             self.isUnlocked = true
                         }
                     } else {
-                        // error
+                        Task { @MainActor in
+                            self.authErrorMessage = "Authentication failed. Please try again."
+                            self.showingAuthError = true
+                        }
                     }
                 }
             } else {
-                // no biometrics
+                Task { @MainActor in
+                    self.authErrorMessage = "Authentication is not available on this device."
+                    self.showingAuthError = true
+                }
             }
         }
 
