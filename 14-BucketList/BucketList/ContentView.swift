@@ -29,12 +29,13 @@ struct ContentView: View {
         NavigationView {
             Map(coordinateRegion: $mapRegion, annotationItems: locations) { location in
                 MapAnnotation(coordinate: location.coordinate) {
-                    Circle()
-                        .stroke(.red, lineWidth: 3)
-                        .frame(width: 44, height: 44)
-                        .onTapGesture {
-                            print("Tapped on \(location.name)")
-                        }
+                    NavigationLink {
+                        Text(location.name)
+                    } label: {
+                        Circle()
+                            .stroke(.red, lineWidth: 3)
+                            .frame(width: 44, height: 44)
+                    }
                 }
             }
             .navigationTitle("London Explorer")
