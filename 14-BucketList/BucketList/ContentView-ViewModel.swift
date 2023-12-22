@@ -8,16 +8,17 @@
 import Foundation
 import LocalAuthentication
 import MapKit
+import SwiftUI
 
 extension ContentView {
-    @MainActor class ViewModel: ObservableObject {
-        @Published var isUnlocked = false
-        @Published var mapRegion = MKCoordinateRegion(
+    @MainActor @Observable class ViewModel: ObservableObject {
+        var isUnlocked = false
+        var mapRegion = MKCoordinateRegion(
             center: CLLocationCoordinate2D(latitude: 50, longitude: 0),
             span: MKCoordinateSpan(latitudeDelta: 25, longitudeDelta: 25)
         )
-        @Published private(set) var locations: [Location]
-        @Published var selectedPlace: Location?
+        private(set) var locations: [Location]
+        var selectedPlace: Location?
         
         let savePath = FileManager.documentsDirectory.appendingPathComponent("SavedPlaces")
         
