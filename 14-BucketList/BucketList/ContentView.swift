@@ -5,49 +5,42 @@
 //  Created by Kevin Pfefferle on 12/22/23.
 //
 
-import LocalAuthentication
 import MapKit
 import SwiftUI
 
-struct Location: Identifiable {
-    let id = UUID()
-    let name: String
-    let coordinate: CLLocationCoordinate2D
-}
-
 struct ContentView: View {
-    @State private var isUnlocked = false
-
-    var body: some View {
-        VStack {
-            if isUnlocked {
-                Text("Unlocked")
-            } else {
-                Text("Locked")
-            }
-        }
-        .onAppear(perform: authenticate)
-    }
+    @State private var mapRegion = MKCoordinateRegion(
+        center: CLLocationCoordinate2D(latitude: 50, longitude: 0),
+        span: MKCoordinateSpan(latitudeDelta: 25, longitudeDelta: 25)
+    )
     
-    func authenticate() {
-        let context = LAContext()
-        var error: NSError?
-        
-        // check whether biometric authentication is possible
-        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            // it's possible, so go ahead and use it
-            let reason = "We need to unlock your data."
+    var body: some View {
+        ZStack {
+            Map(coordinateRegion: $mapRegion)
+                .ignoresSafeArea()
+
+            Circle()
+                .fill(.blue)
+                .opacity(0.3)
+                .frame(width: 32, height: 32)
             
-            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
-                // authentication has now completed
-                if success {
-                    isUnlocked = true
-                } else {
-                    // there was a problem
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    Button {
+                        // TODO: create a new location
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                    .padding()
+                    .background(.black.opacity(0.75))
+                    .foregroundColor(.white)
+                    .font(.title)
+                    .clipShape(.circle)
+                    .padding(.trailing)
                 }
             }
-        } else {
-            // no biometrics
         }
     }
 }
