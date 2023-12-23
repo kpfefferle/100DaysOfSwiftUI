@@ -14,7 +14,7 @@ struct ContentView: View {
             Text("1000")
                 .font(.title)
         }
-        .accessibilityElement(children: .ignore)
+        .accessibilityElement()
         .accessibilityLabel("Your score is 1000")
     }
 }
