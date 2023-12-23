@@ -11,6 +11,10 @@ import SwiftUI
 struct ItemView: View {
     var item: ExpenseItem
     
+    var formattedAmount: String {
+        item.amount.formatted(.currency(code: Locale.current.currency?.identifier ?? "USD"))
+    }
+    
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
@@ -20,9 +24,12 @@ struct ItemView: View {
             }
                    
             Spacer()
-            Text(item.amount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+            Text(formattedAmount)
                 .foregroundStyle(colorFor(amount: item.amount))
         }
+        .accessibilityElement()
+        .accessibilityLabel("\(item.name), \(formattedAmount)")
+        .accessibilityHint(item.type)
     }
     
     func colorFor(amount: Double) -> any ShapeStyle {
