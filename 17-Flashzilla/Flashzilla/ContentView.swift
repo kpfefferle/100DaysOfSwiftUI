@@ -8,17 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    @Environment(\.accessibilityReduceMotion) var reduceMotion
-    @State private var scale = 1.0
+    @Environment(\.accessibilityReduceTransparency) var reduceTransparency
     
     var body: some View {
         Text("Hello, World!")
-            .scaleEffect(scale)
-            .onTapGesture {
-                withOptionalAnimation {
-                    scale *= 1.5
-                }
-            }
+            .padding()
+            .background(reduceTransparency ? .black : .black.opacity(0.5))
+            .foregroundColor(.white)
+            .clipShape(.capsule)
     }
     
     func withOptionalAnimation<Result>(_ animation: Animation? = .default, _ body: () throws -> Result) rethrows -> Result {
