@@ -15,14 +15,18 @@ struct ContentView: View {
         Text("Hello, World!")
             .scaleEffect(scale)
             .onTapGesture {
-                if reduceMotion {
+                withOptionalAnimation {
                     scale *= 1.5
-                } else {
-                    withAnimation {
-                        scale *= 1.5
-                    }
                 }
             }
+    }
+    
+    func withOptionalAnimation<Result>(_ animation: Animation? = .default, _ body: () throws -> Result) rethrows -> Result {
+        if UIAccessibility.isReduceMotionEnabled {
+            return try body()
+        } else {
+            return try withAnimation(animation, body)
+        }
     }
 }
 
