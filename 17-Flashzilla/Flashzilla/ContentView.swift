@@ -23,6 +23,7 @@ struct ContentView: View {
                 .onTapGesture {
                     print("Circle tapped!")
                 }
+                .allowsHitTesting(false)
         }
     }
 }
