@@ -20,11 +20,25 @@ class Prospects: ObservableObject {
     var people: [Prospect]
     
     init() {
-        self.people = []
+        if let data = UserDefaults.standard.data(forKey: "SavedData") {
+            if let decoded = try? JSONDecoder().decode([Prospect.self], from: data) {
+                people = decoded
+                return
+            }
+        }
+        
+        people = []
     }
     
     func toggle(_ prospect: Prospect) {
         objectWillChange.send()
         prospect.isContacted.toggle()
+        save()
+    }
+    
+    func save() {
+        if let encoded = try? JSONEncoder().encode(people) {
+            UserDefaults.standard.setValue(encoded, forKey: "SavedData")
+        }
     }
 }
