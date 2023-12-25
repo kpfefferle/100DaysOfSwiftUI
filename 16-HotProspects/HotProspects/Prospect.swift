@@ -17,11 +17,13 @@ class Prospect: Identifiable, Codable {
 @MainActor
 @Observable
 class Prospects: ObservableObject {
+    let saveKey = "SavedData"
+
     var people: [Prospect]
     
     init() {
-        if let data = UserDefaults.standard.data(forKey: "SavedData") {
-            if let decoded = try? JSONDecoder().decode([Prospect.self], from: data) {
+        if let data = UserDefaults.standard.data(forKey: saveKey) {
+            if let decoded = try? JSONDecoder().decode([Prospect].self, from: data) {
                 people = decoded
                 return
             }
@@ -38,7 +40,7 @@ class Prospects: ObservableObject {
     
     func save() {
         if let encoded = try? JSONEncoder().encode(people) {
-            UserDefaults.standard.setValue(encoded, forKey: "SavedData")
+            UserDefaults.standard.setValue(encoded, forKey: saveKey)
         }
     }
 }
