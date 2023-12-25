@@ -31,6 +31,15 @@ struct MeView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 200, height: 200)
+                    .contextMenu {
+                        Button {
+                            let image = generateQRCode(from: "\(name)\n\(emailAddress)")
+                            let imageSaver = ImageSaver()
+                            imageSaver.writeToPhotoAlbum(image: image)
+                        } label: {
+                            Label("Save to Photos", systemImage: "square.and.arrow.down")
+                        }
+                    }
             }
             .navigationTitle("Your code")
         }
