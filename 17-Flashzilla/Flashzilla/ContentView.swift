@@ -20,10 +20,10 @@ struct ContentView: View {
             Circle()
                 .fill(.red)
                 .frame(width: 300, height: 300)
+                .contentShape(Rectangle())
                 .onTapGesture {
                     print("Circle tapped!")
                 }
-                .allowsHitTesting(false)
         }
     }
 }
