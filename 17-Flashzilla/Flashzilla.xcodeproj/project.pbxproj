@@ -7,22 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A9A4C1B2B394102000932C8 /* FlashzillaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A4C1A2B394102000932C8 /* FlashzillaApp.swift */; };
-		0A9A4C1D2B394102000932C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A4C1C2B394102000932C8 /* ContentView.swift */; };
-		0A9A4C1F2B394103000932C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A9A4C1E2B394103000932C8 /* Assets.xcassets */; };
-		0A9A4C222B394103000932C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A9A4C212B394103000932C8 /* Preview Assets.xcassets */; };
+		0A9A4C352B3A3C3C000932C8 /* FlashzillaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A4C342B3A3C3C000932C8 /* FlashzillaApp.swift */; };
+		0A9A4C372B3A3C3C000932C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A4C362B3A3C3C000932C8 /* ContentView.swift */; };
+		0A9A4C392B3A3C3C000932C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A9A4C382B3A3C3C000932C8 /* Assets.xcassets */; };
+		0A9A4C3C2B3A3C3C000932C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A9A4C3B2B3A3C3C000932C8 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A9A4C172B394102000932C8 /* Flashzilla.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashzilla.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A9A4C1A2B394102000932C8 /* FlashzillaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashzillaApp.swift; sourceTree = "<group>"; };
-		0A9A4C1C2B394102000932C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		0A9A4C1E2B394103000932C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0A9A4C212B394103000932C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0A9A4C312B3A3C3C000932C8 /* Flashzilla.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashzilla.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A9A4C342B3A3C3C000932C8 /* FlashzillaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashzillaApp.swift; sourceTree = "<group>"; };
+		0A9A4C362B3A3C3C000932C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0A9A4C382B3A3C3C000932C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0A9A4C3B2B3A3C3C000932C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0A9A4C142B394102000932C8 /* Frameworks */ = {
+		0A9A4C2E2B3A3C3C000932C8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -32,37 +32,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0A9A4C0E2B394102000932C8 = {
+		0A9A4C282B3A3C3B000932C8 = {
 			isa = PBXGroup;
 			children = (
-				0A9A4C192B394102000932C8 /* Flashzilla */,
-				0A9A4C182B394102000932C8 /* Products */,
+				0A9A4C332B3A3C3C000932C8 /* Flashzilla */,
+				0A9A4C322B3A3C3C000932C8 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		0A9A4C182B394102000932C8 /* Products */ = {
+		0A9A4C322B3A3C3C000932C8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0A9A4C172B394102000932C8 /* Flashzilla.app */,
+				0A9A4C312B3A3C3C000932C8 /* Flashzilla.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0A9A4C192B394102000932C8 /* Flashzilla */ = {
+		0A9A4C332B3A3C3C000932C8 /* Flashzilla */ = {
 			isa = PBXGroup;
 			children = (
-				0A9A4C1A2B394102000932C8 /* FlashzillaApp.swift */,
-				0A9A4C1C2B394102000932C8 /* ContentView.swift */,
-				0A9A4C1E2B394103000932C8 /* Assets.xcassets */,
-				0A9A4C202B394103000932C8 /* Preview Content */,
+				0A9A4C342B3A3C3C000932C8 /* FlashzillaApp.swift */,
+				0A9A4C362B3A3C3C000932C8 /* ContentView.swift */,
+				0A9A4C382B3A3C3C000932C8 /* Assets.xcassets */,
+				0A9A4C3A2B3A3C3C000932C8 /* Preview Content */,
 			);
 			path = Flashzilla;
 			sourceTree = "<group>";
 		};
-		0A9A4C202B394103000932C8 /* Preview Content */ = {
+		0A9A4C3A2B3A3C3C000932C8 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				0A9A4C212B394103000932C8 /* Preview Assets.xcassets */,
+				0A9A4C3B2B3A3C3C000932C8 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -70,13 +70,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0A9A4C162B394102000932C8 /* Flashzilla */ = {
+		0A9A4C302B3A3C3C000932C8 /* Flashzilla */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0A9A4C252B394103000932C8 /* Build configuration list for PBXNativeTarget "Flashzilla" */;
+			buildConfigurationList = 0A9A4C3F2B3A3C3C000932C8 /* Build configuration list for PBXNativeTarget "Flashzilla" */;
 			buildPhases = (
-				0A9A4C132B394102000932C8 /* Sources */,
-				0A9A4C142B394102000932C8 /* Frameworks */,
-				0A9A4C152B394102000932C8 /* Resources */,
+				0A9A4C2D2B3A3C3C000932C8 /* Sources */,
+				0A9A4C2E2B3A3C3C000932C8 /* Frameworks */,
+				0A9A4C2F2B3A3C3C000932C8 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -84,25 +84,25 @@
 			);
 			name = Flashzilla;
 			productName = Flashzilla;
-			productReference = 0A9A4C172B394102000932C8 /* Flashzilla.app */;
+			productReference = 0A9A4C312B3A3C3C000932C8 /* Flashzilla.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		0A9A4C0F2B394102000932C8 /* Project object */ = {
+		0A9A4C292B3A3C3B000932C8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1510;
 				LastUpgradeCheck = 1510;
 				TargetAttributes = {
-					0A9A4C162B394102000932C8 = {
+					0A9A4C302B3A3C3C000932C8 = {
 						CreatedOnToolsVersion = 15.1;
 					};
 				};
 			};
-			buildConfigurationList = 0A9A4C122B394102000932C8 /* Build configuration list for PBXProject "Flashzilla" */;
+			buildConfigurationList = 0A9A4C2C2B3A3C3B000932C8 /* Build configuration list for PBXProject "Flashzilla" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -110,42 +110,42 @@
 				en,
 				Base,
 			);
-			mainGroup = 0A9A4C0E2B394102000932C8;
-			productRefGroup = 0A9A4C182B394102000932C8 /* Products */;
+			mainGroup = 0A9A4C282B3A3C3B000932C8;
+			productRefGroup = 0A9A4C322B3A3C3C000932C8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0A9A4C162B394102000932C8 /* Flashzilla */,
+				0A9A4C302B3A3C3C000932C8 /* Flashzilla */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0A9A4C152B394102000932C8 /* Resources */ = {
+		0A9A4C2F2B3A3C3C000932C8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A9A4C222B394103000932C8 /* Preview Assets.xcassets in Resources */,
-				0A9A4C1F2B394103000932C8 /* Assets.xcassets in Resources */,
+				0A9A4C3C2B3A3C3C000932C8 /* Preview Assets.xcassets in Resources */,
+				0A9A4C392B3A3C3C000932C8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0A9A4C132B394102000932C8 /* Sources */ = {
+		0A9A4C2D2B3A3C3C000932C8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A9A4C1D2B394102000932C8 /* ContentView.swift in Sources */,
-				0A9A4C1B2B394102000932C8 /* FlashzillaApp.swift in Sources */,
+				0A9A4C372B3A3C3C000932C8 /* ContentView.swift in Sources */,
+				0A9A4C352B3A3C3C000932C8 /* FlashzillaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		0A9A4C232B394103000932C8 /* Debug */ = {
+		0A9A4C3D2B3A3C3C000932C8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -208,7 +208,7 @@
 			};
 			name = Debug;
 		};
-		0A9A4C242B394103000932C8 /* Release */ = {
+		0A9A4C3E2B3A3C3C000932C8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -264,7 +264,7 @@
 			};
 			name = Release;
 		};
-		0A9A4C262B394103000932C8 /* Debug */ = {
+		0A9A4C402B3A3C3C000932C8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -293,7 +293,7 @@
 			};
 			name = Debug;
 		};
-		0A9A4C272B394103000932C8 /* Release */ = {
+		0A9A4C412B3A3C3C000932C8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -325,25 +325,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0A9A4C122B394102000932C8 /* Build configuration list for PBXProject "Flashzilla" */ = {
+		0A9A4C2C2B3A3C3B000932C8 /* Build configuration list for PBXProject "Flashzilla" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0A9A4C232B394103000932C8 /* Debug */,
-				0A9A4C242B394103000932C8 /* Release */,
+				0A9A4C3D2B3A3C3C000932C8 /* Debug */,
+				0A9A4C3E2B3A3C3C000932C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0A9A4C252B394103000932C8 /* Build configuration list for PBXNativeTarget "Flashzilla" */ = {
+		0A9A4C3F2B3A3C3C000932C8 /* Build configuration list for PBXNativeTarget "Flashzilla" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0A9A4C262B394103000932C8 /* Debug */,
-				0A9A4C272B394103000932C8 /* Release */,
+				0A9A4C402B3A3C3C000932C8 /* Debug */,
+				0A9A4C412B3A3C3C000932C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 0A9A4C0F2B394102000932C8 /* Project object */;
+	rootObject = 0A9A4C292B3A3C3B000932C8 /* Project object */;
 }
