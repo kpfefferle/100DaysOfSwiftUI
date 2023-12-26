@@ -13,6 +13,7 @@
 		0A9A4C3C2B3A3C3C000932C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A9A4C3B2B3A3C3C000932C8 /* Preview Assets.xcassets */; };
 		0A9A4C432B3A42F4000932C8 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A4C422B3A42F4000932C8 /* Card.swift */; };
 		0A9A4C452B3A4943000932C8 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A4C442B3A4943000932C8 /* CardView.swift */; };
+		0A9A4C472B3B5236000932C8 /* EditCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A4C462B3B5236000932C8 /* EditCardsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		0A9A4C3B2B3A3C3C000932C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0A9A4C422B3A42F4000932C8 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		0A9A4C442B3A4943000932C8 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		0A9A4C462B3B5236000932C8 /* EditCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCardsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				0A9A4C342B3A3C3C000932C8 /* FlashzillaApp.swift */,
 				0A9A4C362B3A3C3C000932C8 /* ContentView.swift */,
 				0A9A4C442B3A4943000932C8 /* CardView.swift */,
+				0A9A4C462B3B5236000932C8 /* EditCardsView.swift */,
 				0A9A4C422B3A42F4000932C8 /* Card.swift */,
 				0A9A4C382B3A3C3C000932C8 /* Assets.xcassets */,
 				0A9A4C3A2B3A3C3C000932C8 /* Preview Content */,
@@ -146,6 +149,7 @@
 				0A9A4C372B3A3C3C000932C8 /* ContentView.swift in Sources */,
 				0A9A4C432B3A42F4000932C8 /* Card.swift in Sources */,
 				0A9A4C452B3A4943000932C8 /* CardView.swift in Sources */,
+				0A9A4C472B3B5236000932C8 /* EditCardsView.swift in Sources */,
 				0A9A4C352B3A3C3C000932C8 /* FlashzillaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
