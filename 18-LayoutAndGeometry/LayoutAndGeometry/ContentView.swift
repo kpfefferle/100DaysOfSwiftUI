@@ -9,10 +9,16 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        GeometryReader { geo in
-            Text("Hello, world!")
-                .frame(width: geo.size.width * 0.9)
-                .background(.red)
+        VStack {
+            GeometryReader { geo in
+                Text("Hello, world!")
+                    .frame(width: geo.size.width * 0.9, height: 40)
+                    .background(.red)
+            }
+            .background(.green)
+
+            Text("More text")
+                .background(.blue)
         }
     }
 }
