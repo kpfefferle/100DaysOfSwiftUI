@@ -26,6 +26,8 @@ struct ContentView: View {
     
     @State private var cards = [Card](repeating: Card.example, count: 10)
     
+    @State private var showingEditScreen = false
+    
     var body: some View {
         ZStack {
             Image(decorative: "background")
@@ -63,6 +65,26 @@ struct ContentView: View {
                         .clipShape(.capsule)
                 }
             }
+            
+            VStack {
+                HStack {
+                    Spacer()
+                    
+                    Button {
+                        showingEditScreen = true
+                    } label: {
+                        Image(systemName: "plus.circle")
+                            .padding()
+                            .background(.black.opacity(0.7))
+                            .clipShape(.circle)
+                    }
+                }
+                
+                Spacer()
+            }
+            .foregroundStyle(.white)
+            .font(.largeTitle)
+            .padding()
             
             if differentiateWithoutColor || voiceOverEnabled {
                 VStack {
