@@ -110,7 +110,7 @@ struct ContentView: View {
                 timeRemaining -= 1
             }
         }
-        .onChange(of: scenePhase) { newPhase in
+        .onChange(of: scenePhase) { _, newPhase in
             if newPhase == .active {
                 if !cards.isEmpty {
                     isActive = true
