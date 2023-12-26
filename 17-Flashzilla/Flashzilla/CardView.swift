@@ -83,6 +83,7 @@ struct CardView: View {
         .onTapGesture {
             isShowingAnswer.toggle()
         }
+        .animation(.spring, value: offset)
     }
 }
 
