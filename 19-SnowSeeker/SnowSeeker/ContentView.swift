@@ -24,13 +24,9 @@ struct ContentView: View {
     var body: some View {
         Group {
             if sizeClass == .compact {
-                VStack {
-                    UserView()
-                }
+                VStack(content: UserView.init)
             } else {
-                HStack {
-                    UserView()
-                }
+                HStack(content: UserView.init)
             }
         }
     }
