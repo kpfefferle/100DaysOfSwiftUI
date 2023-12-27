@@ -15,11 +15,12 @@ struct ContentView: View {
             ScrollView(.vertical) {
                 ForEach(0..<50) { index in
                     GeometryReader { geo in
-                        Text("Row #\(index)")
+                        Text("Row #\(index) \(geo.frame(in: .global).minY)")
                             .font(.title)
                             .frame(maxWidth: .infinity)
                             .background(colors[index % 7])
-                            .opacity(geo.frame(in: .global).maxY / 200)
+                            .opacity(geo.frame(in: .global).midY / 200)
+                            .scaleEffect((geo.frame(in: .global).midY / fullView.size.height) + 0.5)
                             .rotation3DEffect(.degrees(geo.frame(in: .global).minY - fullView.size.height / 2) / 5, axis: (x: 0, y: 1, z: 0))
                     }
                     .frame(height: 40)
