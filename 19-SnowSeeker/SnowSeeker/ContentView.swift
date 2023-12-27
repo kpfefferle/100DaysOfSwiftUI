@@ -19,11 +19,11 @@ struct UserView: View {
 }
 
 struct ContentView: View {
-    @State private var layoutVertically = false
+    @Environment(\.horizontalSizeClass) var sizeClass
     
     var body: some View {
         Group {
-            if layoutVertically {
+            if sizeClass == .compact {
                 VStack {
                     UserView()
                 }
@@ -32,9 +32,6 @@ struct ContentView: View {
                     UserView()
                 }
             }
-        }
-        .onTapGesture {
-            layoutVertically.toggle()
         }
     }
 }
