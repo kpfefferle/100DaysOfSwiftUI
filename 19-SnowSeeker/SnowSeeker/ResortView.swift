@@ -12,6 +12,9 @@ struct ResortView: View {
     @Environment(\.horizontalSizeClass) var sizeClass
     
     let resort: Resort
+    
+    @State private var selectedFacility: Facility?
+    @State private var showingFacility = false
 
     var body: some View {
         ScrollView {
@@ -41,8 +44,13 @@ struct ResortView: View {
                     
                     HStack {
                         ForEach(resort.facilityTypes) { facility in
-                            facility.icon
-                                .font(.title)
+                            Button {
+                                selectedFacility = facility
+                                showingFacility = true
+                            } label: {
+                                facility.icon
+                                    .font(.title)
+                            }
                         }
                     }
                     .padding(.vertical)
@@ -52,6 +60,10 @@ struct ResortView: View {
         }
         .navigationTitle("\(resort.name), \(resort.country)")
         .navigationBarTitleDisplayMode(.inline)
+        .alert(selectedFacility?.name ?? "More information", isPresented: $showingFacility, presenting: selectedFacility) { _ in
+        } message: { facility in
+            Text(facility.description)
+        }
     }
 }
 
