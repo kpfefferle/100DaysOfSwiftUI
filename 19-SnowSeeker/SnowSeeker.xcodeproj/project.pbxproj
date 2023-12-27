@@ -12,6 +12,8 @@
 		0A579C432B3BEC1B004B8DB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A579C422B3BEC1B004B8DB8 /* Assets.xcassets */; };
 		0A579C462B3BEC1B004B8DB8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A579C452B3BEC1B004B8DB8 /* Preview Assets.xcassets */; };
 		0A579C4D2B3C724B004B8DB8 /* resorts.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A579C4C2B3C724B004B8DB8 /* resorts.json */; };
+		0A579C4F2B3C72AB004B8DB8 /* Resort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A579C4E2B3C72AB004B8DB8 /* Resort.swift */; };
+		0A579C512B3C730F004B8DB8 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A579C502B3C730F004B8DB8 /* Bundle-Decodable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		0A579C422B3BEC1B004B8DB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A579C452B3BEC1B004B8DB8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0A579C4C2B3C724B004B8DB8 /* resorts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = resorts.json; sourceTree = "<group>"; };
+		0A579C4E2B3C72AB004B8DB8 /* Resort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resort.swift; sourceTree = "<group>"; };
+		0A579C502B3C730F004B8DB8 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 			children = (
 				0A579C3E2B3BEC1A004B8DB8 /* SnowSeekerApp.swift */,
 				0A579C402B3BEC1A004B8DB8 /* ContentView.swift */,
+				0A579C4E2B3C72AB004B8DB8 /* Resort.swift */,
+				0A579C502B3C730F004B8DB8 /* Bundle-Decodable.swift */,
 				0A579C4C2B3C724B004B8DB8 /* resorts.json */,
 				0A579C422B3BEC1B004B8DB8 /* Assets.xcassets */,
 				0A579C442B3BEC1B004B8DB8 /* Preview Content */,
@@ -142,7 +148,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A579C412B3BEC1A004B8DB8 /* ContentView.swift in Sources */,
+				0A579C4F2B3C72AB004B8DB8 /* Resort.swift in Sources */,
 				0A579C3F2B3BEC1A004B8DB8 /* SnowSeekerApp.swift in Sources */,
+				0A579C512B3C730F004B8DB8 /* Bundle-Decodable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
